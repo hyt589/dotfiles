@@ -20,21 +20,24 @@ endif
 colorscheme onehalfdark
 highlight Comment gui=None
 
-autocmd BufNewFile,BufRead *.c             call s:cpp_mode()
-autocmd BufNewFile,BufRead *.cpp           call s:cpp_mode()
-autocmd BufNewFile,BufRead *.h             call s:cpp_mode()
-autocmd BufNewFile,BufRead *.hpp           call s:cpp_mode()
-autocmd BufNewFile,BufRead *.vim           call s:viml_mode()
-autocmd BufNewFile,BufRead *.vimrc         call s:viml_mode()
-autocmd BufNewFile,BufRead *CMakeLists.txt call s:cmake_mode()
-autocmd BufNewFile,BufRead *.cmake         call s:cmake_mode()
-autocmd BufNewFile,BufRead *.json          call s:json_mode()
-autocmd BufNewFile,BufRead *.md            call s:markdown_mode()
+augroup hyt
+  autocmd!
+  autocmd BufNewFile,BufRead *.c             call s:cpp_mode()
+  autocmd BufNewFile,BufRead *.cpp           call s:cpp_mode()
+  autocmd BufNewFile,BufRead *.h             call s:cpp_mode()
+  autocmd BufNewFile,BufRead *.hpp           call s:cpp_mode()
+  autocmd BufNewFile,BufRead *.vim           call s:viml_mode()
+  autocmd BufNewFile,BufRead *.vimrc         call s:viml_mode()
+  autocmd BufNewFile,BufRead *CMakeLists.txt call s:cmake_mode()
+  autocmd BufNewFile,BufRead *.cmake         call s:cmake_mode()
+  autocmd BufNewFile,BufRead *.json          call s:json_mode()
+  autocmd BufNewFile,BufRead *.md            call s:markdown_mode()
 
-autocmd User RooterChDir           silent! call s:check_project_config()
-autocmd User AirlineAfterInit      silent! let g:airline_section_a = "%#__accent_bold#%{winnr()} - " . g:airline_section_a
-autocmd User EasyMotionPromptBegin silent! CocDisable
-autocmd User EasyMotionPromptEnd   silent! call s:after_easy_motion()
+  autocmd User RooterChDir           silent! call s:check_project_config()
+  autocmd User AirlineAfterInit      silent! let g:airline_section_a = "%#__accent_bold#%{winnr()} - " . g:airline_section_a
+  autocmd User EasyMotionPromptBegin silent! CocDisable
+  autocmd User EasyMotionPromptEnd   silent! call s:after_easy_motion()
+augroup END
 
 function s:after_easy_motion() abort
   execute 'silent! CocEnable'
