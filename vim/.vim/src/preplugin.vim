@@ -18,6 +18,7 @@ set nohlsearch
 
 let g:project_local_config = '.config.vim'
 let g:maximizer_set_default_mapping = 0
+let g:EasyMotion_smartcase = 1
 
 let g:root_patterns = [
   \ '.git',
