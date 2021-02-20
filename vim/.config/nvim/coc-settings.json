@@ -1,6 +1,6 @@
 {
-  "clangd.semanticHighlighting": false,
-  "diagnostic.refreshOnInsertMode": true,
+  "clangd.enabled": true,
+  "clangd.semanticHighlighting": true,
   "languageserver": {
     "ccls": {
       "command": "ccls",
@@ -17,9 +17,6 @@
         },
         "client": {
           "snippetSupport": true
-        },
-        "highlight": {
-          "lsRanges": true
         }
       },
       "rootPatterns": [

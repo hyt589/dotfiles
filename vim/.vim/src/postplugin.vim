@@ -22,16 +22,16 @@ highlight Comment gui=None
 
 augroup hyt
   autocmd!
-  autocmd BufNewFile,BufRead *.c             call s:cpp_mode()
-  autocmd BufNewFile,BufRead *.cpp           call s:cpp_mode()
-  autocmd BufNewFile,BufRead *.h             call s:cpp_mode()
-  autocmd BufNewFile,BufRead *.hpp           call s:cpp_mode()
-  autocmd BufNewFile,BufRead *.vim           call s:viml_mode()
-  autocmd BufNewFile,BufRead *.vimrc         call s:viml_mode()
-  autocmd BufNewFile,BufRead *CMakeLists.txt call s:cmake_mode()
-  autocmd BufNewFile,BufRead *.cmake         call s:cmake_mode()
-  autocmd BufNewFile,BufRead *.json          call s:json_mode()
-  autocmd BufNewFile,BufRead *.md            call s:markdown_mode()
+  autocmd BufNewFile,BufRead,BufEnter *.c             call s:cpp_mode()
+  autocmd BufNewFile,BufRead,BufEnter *.cpp           call s:cpp_mode()
+  autocmd BufNewFile,BufRead,BufEnter *.h             call s:cpp_mode()
+  autocmd BufNewFile,BufRead,BufEnter *.hpp           call s:cpp_mode()
+  autocmd BufNewFile,BufRead,BufEnter *.vim           call s:viml_mode()
+  autocmd BufNewFile,BufRead,BufEnter *.vimrc         call s:viml_mode()
+  autocmd BufNewFile,BufRead,BufEnter *CMakeLists.txt call s:cmake_mode()
+  autocmd BufNewFile,BufRead,BufEnter *.cmake         call s:cmake_mode()
+  autocmd BufNewFile,BufRead,BufEnter *.json          call s:json_mode()
+  autocmd BufNewFile,BufRead,BufEnter *.md            call s:markdown_mode()
 
   autocmd User RooterChDir           silent! call s:check_project_config()
   autocmd User AirlineAfterInit      silent! let g:airline_section_a = "%#__accent_bold#%{winnr()} - " . g:airline_section_a
@@ -62,6 +62,7 @@ endfunction
 
 function s:json_mode() abort
   setlocal sw=2
+  set commentstring="//%s"
   call JSON#formatCurrentBuffer()
 endfunction
 
@@ -101,17 +102,18 @@ nnoremap <c-k> kzz
 nnoremap o zzo
 nnoremap O zzO
 
-nnoremap <silent><leader>1 :call <SID>go_to_buffer_nr(1)<cr>
-nnoremap <silent><leader>2 :call <SID>go_to_buffer_nr(2)<cr>
-nnoremap <silent><leader>3 :call <SID>go_to_buffer_nr(3)<cr>
-nnoremap <silent><leader>4 :call <SID>go_to_buffer_nr(4)<cr>
-nnoremap <silent><leader>5 :call <SID>go_to_buffer_nr(5)<cr>
-nnoremap <silent><leader>6 :call <SID>go_to_buffer_nr(6)<cr>
-nnoremap <silent><leader>7 :call <SID>go_to_buffer_nr(7)<cr>
-nnoremap <silent><leader>8 :call <SID>go_to_buffer_nr(8)<cr>
-nnoremap <silent><leader>9 :call <SID>go_to_buffer_nr(9)<cr>
-nnoremap <silent><leader>bd :bdelete<cr>
-nnoremap <silent><leader>bc :call <SID>clear_saved_buffer()<cr>
+nnoremap <silent><leader>1  <cmd> silent! call <SID>go_to_buffer_nr(1)<cr>
+nnoremap <silent><leader>2  <cmd> silent! call <SID>go_to_buffer_nr(2)<cr>
+nnoremap <silent><leader>3  <cmd> silent! call <SID>go_to_buffer_nr(3)<cr>
+nnoremap <silent><leader>4  <cmd> silent! call <SID>go_to_buffer_nr(4)<cr>
+nnoremap <silent><leader>5  <cmd> silent! call <SID>go_to_buffer_nr(5)<cr>
+nnoremap <silent><leader>6  <cmd> silent! call <SID>go_to_buffer_nr(6)<cr>
+nnoremap <silent><leader>7  <cmd> silent! call <SID>go_to_buffer_nr(7)<cr>
+nnoremap <silent><leader>8  <cmd> silent! call <SID>go_to_buffer_nr(8)<cr>
+nnoremap <silent><leader>9  <cmd> silent! call <SID>go_to_buffer_nr(9)<cr>
+nnoremap <silent><leader>0  <cmd> silent! call <SID>go_to_buffer_nr(10)<cr>
+nnoremap <silent><leader>bd <cmd> bdelete<cr>
+nnoremap <silent><leader>bc <cmd> call <SID>clear_saved_buffer()<cr>
 
 " nnoremap <silent><F2> :TagbarToggle<CR>
 nnoremap <silent><F2> :Vista!!<CR>
@@ -133,7 +135,7 @@ nnoremap <silent><space>9 :exe 9 . 'wincmd w'<cr>
 
 nnoremap <space>w <c-w>
 
-nnoremap <silent><space>r :exec 'source ' . g:vim_home . '/init.vim'<cr>
+nnoremap <silent><space>r :exec 'source ' . g:vim_home . '/vimrc'<cr>
 
 nmap <c-_> gcc
 vmap <c-_> gc
@@ -163,6 +165,12 @@ nmap <Leader>s <Plug>(easymotion-s2)
 xmap <Leader>s <Plug>(easymotion-s2)
 omap <Leader>z <Plug>(easymotion-s2)
 map <leader><leader> <Plug>(easymotion-prefix)
+
+" Find files using Telescope command-line sugar.
+nnoremap <space>ff <cmd>Telescope find_files<cr>
+nnoremap <space>fg <cmd>Telescope live_grep<cr>
+nnoremap <space>fb <cmd>Telescope buffers<cr>
+nnoremap <space>fh <cmd>Telescope help_tags<cr>
 
 noremap <silent><space>m :MaximizerToggle<cr>
 

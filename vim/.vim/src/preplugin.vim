@@ -20,8 +20,14 @@ let g:project_local_config = '.config.vim'
 let g:maximizer_set_default_mapping = 0
 let g:EasyMotion_smartcase = 1
 
-let g:root_patterns = [
+let g:rooter_patterns = [
+  \ '!^third_party',
+  \ '!^vendor',
+  \ '!^submodule',
   \ '.git',
+  \ 'compile_commands.json',
+  \ '.ccls',
+  \ '.vim',
   \ g:project_local_config
   \ ]
 

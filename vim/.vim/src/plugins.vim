@@ -52,6 +52,12 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
+if has('nvim-0.5.0')
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim' 
+endif
+
 Plug 'Shougo/vimfiler.vim'
 
 Plug 'liuchengxu/vista.vim'
