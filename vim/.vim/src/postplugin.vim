@@ -1,5 +1,6 @@
 let g:airline#extensions#tabline#enabled         = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#formatter       = 'unique_tail'
 let g:neoterm_default_mod                        = 'botright'
 let g:neoterm_size                               = 15
 let g:neoterm_autoinsert                         = 1
@@ -64,7 +65,6 @@ endfunction
 function s:json_mode() abort
   setlocal sw=2
   set commentstring="//%s"
-  call JSON#formatCurrentBuffer()
 endfunction
 
 function s:go_to_buffer_nr(num) abort
@@ -100,7 +100,7 @@ highlight default link WhichKey          Function
 highlight default link WhichKeySeperator DiffAdded
 highlight default link WhichKeyGroup     Keyword
 highlight default link WhichKeyDesc      Identifier
-highlight default link WhichKeyFloating  Whitespace
+highlight default link WhichKeyFloating  Pmenu
 
 nnoremap Q :q<cr>
 nnoremap <silent><leader> :<c-u>WhichKey '<leader>'<cr>
@@ -121,8 +121,9 @@ nnoremap <silent><leader>7  <cmd> silent! call <SID>go_to_buffer_nr(7)<cr>
 nnoremap <silent><leader>8  <cmd> silent! call <SID>go_to_buffer_nr(8)<cr>
 nnoremap <silent><leader>9  <cmd> silent! call <SID>go_to_buffer_nr(9)<cr>
 nnoremap <silent><leader>0  <cmd> silent! call <SID>go_to_buffer_nr(10)<cr>
-nnoremap <silent><leader>bd <cmd> bdelete<cr>
-nnoremap <silent><leader>bc <cmd> call <SID>clear_saved_buffer()<cr>
+nnoremap <silent><space>bd <cmd> bdelete<cr>
+nnoremap <silent><space>bs <c-^>
+nnoremap <silent><space>bc <cmd> call <SID>clear_saved_buffer()<cr>
 
 " nnoremap <silent><F2> :TagbarToggle<CR>
 nnoremap <silent><F3> :Vista!!<CR>
@@ -141,6 +142,18 @@ nnoremap <silent><space>6 :exe 6 . 'wincmd w'<cr>
 nnoremap <silent><space>7 :exe 7 . 'wincmd w'<cr>
 nnoremap <silent><space>8 :exe 8 . 'wincmd w'<cr>
 nnoremap <silent><space>9 :exe 9 . 'wincmd w'<cr>
+
+" git
+noremap <silent><space>gb : G blame <cr>
+noremap <silent><space>gD : G difftool -y <cr>
+noremap <silent><space>gd : Gvdiffsplit <cr>
+noremap <silent><space>gm : G mergetool -y <cr>
+noremap <silent><space>gps : G push <cr>
+noremap <silent><space>gpl : G pull <cr>
+noremap <silent><space>gg : Gtabedit :% <cr>
+
+" tab
+nnoremap <silent><space>tc :tabclose<cr>
 
 nnoremap <space>w <c-w>
 

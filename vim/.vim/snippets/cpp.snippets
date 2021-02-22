@@ -1,0 +1,59 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
+extends c
+
+snippet macroguard "A #ifndef macro guard" b
+#ifndef __${1:GUARD_NAME}__
+#define __$1__
+$2
+#endif // __$1__
+endsnippet
+
+snippet func "function" b
+${1:void} ${2:functionName}($3)
+{
+	$4
+}
+endsnippet
+
+snippet cout "print stuff" b
+std::cout << $1 << std::endl;
+endsnippet
+
+snippet struct "Description" b
+struct ${1:StructName}
+{
+	$2
+}
+endsnippet
+
+snippet fe "for each loop" b
+for (${1:element} : ${2:collection})
+{
+	$3
+}
+endsnippet

@@ -94,6 +94,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'godlygeek/tabular', {'on': 'Tabularize'}
 
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 
 " Always load this plugin last
 Plug 'ryanoasis/vim-devicons'

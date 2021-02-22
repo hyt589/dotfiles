@@ -1,6 +1,6 @@
 {
   "clangd.enabled": true,
-  "clangd.semanticHighlighting": true,
+  "clangd.semanticHighlighting": false,
   "languageserver": {
     "ccls": {
       "command": "ccls",
@@ -17,6 +17,9 @@
         },
         "client": {
           "snippetSupport": true
+        },
+        "highlight": {
+          "lsRanges": true
         }
       },
       "rootPatterns": [
@@ -24,5 +27,6 @@
         "compile_commands.json"
       ]
     }
-  }
+  },
+  "snippets.userSnippetsDirectory": "~/dotfiles/vim/.vim/snippets"
 }
