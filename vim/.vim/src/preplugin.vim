@@ -1,7 +1,6 @@
 " runs before plug#begin
 
 set encoding=UTF-8
-set timeoutlen=5000
 set mouse=a
 set cmdheight=1
 set tabstop=4
@@ -15,6 +14,8 @@ set cursorline
 set expandtab 
 set smarttab
 set nohlsearch
+set incsearch
+set timeoutlen=500
 
 let g:project_local_config = '.config.vim'
 let g:maximizer_set_default_mapping = 0

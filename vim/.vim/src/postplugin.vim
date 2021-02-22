@@ -10,6 +10,7 @@ let g:chromatica#libclang_path                   = '/usr/lib/x86_64-linux-gnu/li
 let g:airline_powerline_fonts                    = 1
 let g:vista_default_executive                    = 'coc'
 let g:vista_sidebar_width                        = 60
+let g:which_key_use_floating_win                 = 1
 
 set cmdheight=1
 
@@ -95,7 +96,15 @@ function ProjectConfigure() abort
   endif
 endfunction
 
+highlight default link WhichKey          Function
+highlight default link WhichKeySeperator DiffAdded
+highlight default link WhichKeyGroup     Keyword
+highlight default link WhichKeyDesc      Identifier
+highlight default link WhichKeyFloating  Whitespace
+
 nnoremap Q :q<cr>
+nnoremap <silent><leader> :<c-u>WhichKey '<leader>'<cr>
+nnoremap <silent><space> :<c-u>WhichKey '<space>'<cr>
 
 nnoremap <c-j> jzz
 nnoremap <c-k> kzz
@@ -116,9 +125,9 @@ nnoremap <silent><leader>bd <cmd> bdelete<cr>
 nnoremap <silent><leader>bc <cmd> call <SID>clear_saved_buffer()<cr>
 
 " nnoremap <silent><F2> :TagbarToggle<CR>
-nnoremap <silent><F2> :Vista!!<CR>
+nnoremap <silent><F3> :Vista!!<CR>
 " nnoremap <silent><F3> :NERDTreeToggle<CR>
-nnoremap <silent><F3> :VimFilerExplorer<CR>
+nnoremap <silent><F2> :VimFilerExplorer<CR>
 
 nnoremap <silent><leader>t :Ttoggle<CR>
 tnoremap <esc> <c-\><c-n>
@@ -141,8 +150,8 @@ nmap <c-_> gcc
 vmap <c-_> gc
 nnoremap <silent><c-s> :wa<cr>
 
-nnoremap <silent><leader>db  :call debug#ToggleBreakPoint()<cr>
-nnoremap <silent><leader>dcb :call debug#ToggleConditionalBreakPoint()<cr>
+nnoremap <silent><space>db  :call debug#ToggleBreakPoint()<cr>
+nnoremap <silent><space>dcb :call debug#ToggleConditionalBreakPoint()<cr>
 nnoremap <silent><F4>        :call debug#Launch()<cr>
 nnoremap <silent><F5>        :call debug#StepOver()<cr>
 nnoremap <silent><F6>        :call debug#StepInto()<cr>
@@ -164,13 +173,13 @@ omap <Leader><Leader>z <Plug>(easymotion-sn)
 nmap <Leader>s <Plug>(easymotion-s2)
 xmap <Leader>s <Plug>(easymotion-s2)
 omap <Leader>z <Plug>(easymotion-s2)
-map <leader><leader> <Plug>(easymotion-prefix)
 
 " Find files using Telescope command-line sugar.
-nnoremap <space>ff <cmd>Telescope find_files<cr>
+nnoremap <space>ff <cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<cr>
 nnoremap <space>fg <cmd>Telescope live_grep<cr>
-nnoremap <space>fb <cmd>Telescope buffers<cr>
+nnoremap <space>fb <cmd>Telescope current_buffer_fuzzy_find<cr>
 nnoremap <space>fh <cmd>Telescope help_tags<cr>
+nnoremap <space>ft :Telescope 
 
 noremap <silent><space>m :MaximizerToggle<cr>
 

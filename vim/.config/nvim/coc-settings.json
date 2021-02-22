@@ -13,7 +13,7 @@
       ],
       "initializationOptions": {
         "cache": {
-          "directory": ".ccls-cache"
+          "directory": "/tmp/ccls-cache"
         },
         "client": {
           "snippetSupport": true

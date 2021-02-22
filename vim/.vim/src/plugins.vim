@@ -29,14 +29,16 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'szw/vim-maximizer'
+Plug 'szw/vim-maximizer', { 'on': ['MaximizerToggle'] }
+
+Plug 'liuchengxu/vim-which-key'
 
 Plug 'puremourning/vimspector'
 Plug 'idanarye/vim-vebugger'
 
 Plug 'michaeljsmith/vim-indent-object'
 
-Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree', {'on': ['NERDTreeToggle']}
 
 Plug 'francoiscabrol/ranger.vim'
 
@@ -45,20 +47,20 @@ if has('nvim')
 endif
 
 if has('nvim')
-  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins', 'on': ['Defx'] }
 else
-  Plug 'Shougo/defx.nvim'
+  Plug 'Shougo/defx.nvim', { 'on': ['Defx'] }
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
 if has('nvim-0.5.0')
-  Plug 'nvim-lua/popup.nvim'
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim' 
+  Plug 'nvim-lua/popup.nvim', { 'on': ['Telescope'] }
+  Plug 'nvim-lua/plenary.nvim', { 'on': ['Telescope'] }
+  Plug 'nvim-telescope/telescope.nvim', { 'on': ['Telescope'] }
 endif
 
-Plug 'Shougo/vimfiler.vim'
+Plug 'Shougo/vimfiler.vim', {'on': 'VimFilerExplorer'}
 
 Plug 'liuchengxu/vista.vim'
 Plug 'preservim/tagbar'
@@ -89,7 +91,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 
 Plug 'easymotion/vim-easymotion'
 
-Plug 'godlygeek/tabular'
+Plug 'godlygeek/tabular', {'on': 'Tabularize'}
 
 Plug 'tpope/vim-fugitive'
 
