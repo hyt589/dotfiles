@@ -151,6 +151,7 @@ noremap <silent><space>gm : G mergetool -y <cr>
 noremap <silent><space>gps : G push <cr>
 noremap <silent><space>gpl : G pull <cr>
 noremap <silent><space>gg : Gtabedit :% <cr>
+noremap <silent><space>gs : G <cr>
 
 " tab
 nnoremap <silent><space>tc :tabclose<cr>
