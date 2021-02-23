@@ -189,7 +189,7 @@ xmap <Leader>s <Plug>(easymotion-s2)
 omap <Leader>z <Plug>(easymotion-s2)
 
 " Find files using Telescope command-line sugar.
-nnoremap <space>ff <cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<cr>
+nnoremap <space>ff <cmd>Telescope find_files find_command=find,-type,f prompt_prefix=🔍<cr>
 nnoremap <space>fg <cmd>Telescope live_grep<cr>
 nnoremap <space>fb <cmd>Telescope current_buffer_fuzzy_find<cr>
 nnoremap <space>fh <cmd>Telescope help_tags<cr>

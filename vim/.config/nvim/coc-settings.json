@@ -1,6 +1,7 @@
 {
   "clangd.enabled": true,
-  "clangd.semanticHighlighting": false,
+  "clangd.semanticHighlighting": true,
+  "clangd.arguments": ["-log=verbose"],
   "languageserver": {
     "ccls": {
       "command": "ccls",
@@ -17,9 +18,6 @@
         },
         "client": {
           "snippetSupport": true
-        },
-        "highlight": {
-          "lsRanges": true
         }
       },
       "rootPatterns": [
@@ -28,5 +26,6 @@
       ]
     }
   },
-  "snippets.userSnippetsDirectory": "~/dotfiles/vim/.vim/snippets"
+  "snippets.userSnippetsDirectory": "~/dotfiles/vim/.vim/snippets",
+  "snippets.loadFromExtensions": false
 }
