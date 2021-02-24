@@ -58,6 +58,9 @@ if has('nvim-0.5.0')
   Plug 'nvim-lua/popup.nvim', { 'on': ['Telescope'] }
   Plug 'nvim-lua/plenary.nvim', { 'on': ['Telescope'] }
   Plug 'nvim-telescope/telescope.nvim', { 'on': ['Telescope'] }
+
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'nvim-treesitter/playground'
 endif
 
 Plug 'Shougo/vimfiler.vim', {'on': 'VimFilerExplorer'}
@@ -72,7 +75,7 @@ Plug 'kassio/neoterm'
 
 Plug 'tpope/vim-commentary'
 
-Plug 'jackguo380/vim-lsp-cxx-highlight'
+" Plug 'jackguo380/vim-lsp-cxx-highlight'
 " Plug 'sheerun/vim-polyglot'
 
 Plug 'Shougo/unite.vim'
