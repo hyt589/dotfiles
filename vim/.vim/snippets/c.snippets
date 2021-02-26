@@ -24,29 +24,16 @@
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
 
-extends c
-
-snippet func "function" b
-${1:void} ${2:functionName}($3)
-{
-	$4
-}
+snippet macroguard "A #ifndef macro guard" b
+#ifndef __${1:GUARD_NAME}__
+#define __$1__
+$2
+#endif // __$1__
 endsnippet
 
-snippet cout "print stuff" b
-std::cout << $1 << std::endl;
-endsnippet
-
-snippet struct "Description" b
-struct ${1:StructName}
-{
-	$2
-}
-endsnippet
-
-snippet fe "for each loop" b
-for (${1:element} : ${2:collection})
-{
-	$3
-}
+snippet headerguard "Create a header guard" b
+#ifndef __${1:PREFIX_}`!v substitute(toupper(expand("%:t")), "\\.", "_", "g")`__
+#define __$1`!v substitute(toupper(expand("%:t")), "\\.", "_", "g")`__
+$2
+#endif // __$1`!v substitute(toupper(expand("%:t")), "\\.", "_", "g")`__
 endsnippet
