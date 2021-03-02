@@ -37,3 +37,19 @@ snippet headerguard "Create a header guard" b
 $2
 #endif // __$1`!v substitute(toupper(expand("%:t")), "\\.", "_", "g")`__
 endsnippet
+
+snippet title "Add signature" b
+/******************************************************************************
+
+* FILENAME:      `!v expand("%:t")`
+
+* AUTHORS:       Yutong Huang
+
+* CONTACT:       yutong.huang@smartmore.com
+
+******************************************************************************/
+endsnippet
+
+snippet s "Statement" b
+$1;
+endsnippet
