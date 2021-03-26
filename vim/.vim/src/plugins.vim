@@ -27,6 +27,8 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'mhinz/vim-startify'
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'szw/vim-maximizer', { 'on': ['MaximizerToggle'] }
@@ -75,7 +77,7 @@ Plug 'kassio/neoterm'
 
 Plug 'tpope/vim-commentary'
 
-" Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'jackguo380/vim-lsp-cxx-highlight'
 " Plug 'sheerun/vim-polyglot'
 
 Plug 'Shougo/unite.vim'
@@ -91,6 +93,7 @@ Plug 'rakr/vim-one'
 Plug 'joshdick/onedark.vim'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'skanehira/preview-markdown.vim'
 
 Plug 'easymotion/vim-easymotion'
 

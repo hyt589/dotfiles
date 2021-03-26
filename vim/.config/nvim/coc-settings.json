@@ -2,30 +2,6 @@
   "clangd.enabled": true,
   "clangd.semanticHighlighting": true,
   "clangd.arguments": ["-log=verbose"],
-  "languageserver": {
-    "ccls": {
-      "command": "ccls",
-      "filetypes": [
-        "c",
-        "cpp",
-        "cuda",
-        "objc",
-        "objcpp"
-      ],
-      "initializationOptions": {
-        "cache": {
-          "directory": "/tmp/ccls-cache"
-        },
-        "client": {
-          "snippetSupport": true
-        }
-      },
-      "rootPatterns": [
-        ".ccls-root",
-        "compile_commands.json"
-      ]
-    }
-  },
   "snippets.userSnippetsDirectory": "~/dotfiles/vim/.vim/snippets",
   "snippets.loadFromExtensions": false
 }

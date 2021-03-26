@@ -12,6 +12,8 @@ let g:airline_powerline_fonts                    = 1
 let g:vista_default_executive                    = 'coc'
 let g:vista_sidebar_width                        = 60
 let g:which_key_use_floating_win                 = 1
+let g:preview_markdown_vertical                  = 1
+let g:preview_markdown_auto_update               = 1
 
 set cmdheight=1
 
@@ -177,8 +179,10 @@ nnoremap <silent><F10>       :call debug#Stop()<cr>
 vnoremap > >gv
 vnoremap < <gv
 
-nnoremap <silent><leader>p :MarkdownPreview<cr>
-nnoremap <silent><leader>P :MarkdownPreviewStop<cr>
+" nnoremap <silent><leader>p :MarkdownPreview<cr>
+" nnoremap <silent><leader>P :MarkdownPreviewStop<cr>
+
+nnoremap <silent><leader>p :PreviewMarkdown<cr>
 
 " Easymotion
 nmap <Leader><Leader>s <Plug>(easymotion-sn)
@@ -194,6 +198,8 @@ nnoremap <space>fg <cmd>Telescope live_grep<cr>
 nnoremap <space>fb <cmd>Telescope current_buffer_fuzzy_find<cr>
 nnoremap <space>fh <cmd>Telescope help_tags<cr>
 nnoremap <space>ft :Telescope 
+
+nnoremap <space>fw /<c-r><c-w><cr>
 
 noremap <silent><space>m :MaximizerToggle<cr>
 

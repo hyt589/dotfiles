@@ -8,9 +8,4 @@ exec 'source ' . g:vim_home . '/src/postplugin.vim'
 exec 'source ' . g:vim_home . '/src/syntax.vim'
 exec 'source ' . g:vim_home . '/src/treesitter_settup.vim'
 
-if len(expand('%')) == 0
-  if has('nvim')
-    exec 'intro'
-  endif
-  call timer_start(200, {-> execute('Ranger')})
-endif
+language en_US.UTF-8

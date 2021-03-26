@@ -24,12 +24,11 @@
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
 
-snippet title "Add title" b
-#  FILENAME:      `!v expand("%:t")`
-#
-#  AUTHORS:       Yutong Huang
-#
-#  LAST MODIFIED: `!v strftime('%c')`
-#
-#  CONTACT:       yutong.huang@smartmore.com
+extends cpp
+
+snippet kernel "Define a CUDA kernel" b
+__global__ ${1:void} ${2:kernelName} ($3)
+{
+	$4
+}
 endsnippet
