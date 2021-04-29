@@ -17,6 +17,8 @@ set nohlsearch
 set incsearch
 set timeoutlen=500
 
+language en_US.utf8
+
 let g:project_local_config = '.config.vim'
 let g:maximizer_set_default_mapping = 0
 let g:EasyMotion_smartcase = 1

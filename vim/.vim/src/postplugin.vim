@@ -50,7 +50,9 @@ augroup hyt
 augroup END
 
 function s:cpp_format() abort
+  let l:saved_pos = getpos('.')
   execute '%!clang-format'
+  call setpos('.', l:saved_pos)
 endfunction
 
 function s:after_easy_motion() abort

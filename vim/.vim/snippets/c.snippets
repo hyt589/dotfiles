@@ -25,10 +25,10 @@
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
 
 snippet macroguard "A #ifndef macro guard" b
-#ifndef __${1:GUARD_NAME}__
-#define __$1__
+#ifndef ${1:GUARD_NAME}
+#define $1
 $2
-#endif // __$1__
+#endif // $1
 endsnippet
 
 snippet headerguard "Create a header guard" b
@@ -40,13 +40,13 @@ endsnippet
 
 snippet title "Add signature" b
 /******************************************************************************
-* FILENAME:      `!v expand("%:t")`
-*
-* AUTHORS:       Yutong Huang
-*
-* LAST MODIFIED: `!v strftime('%c')`
-*
-* CONTACT:       yutong.huang@smartmore.com
+ * FILENAME:      `!v expand("%:t")`
+ *
+ * AUTHORS:       Yutong Huang
+ *
+ * LAST MODIFIED: `!v strftime('%c')`
+ *
+ * CONTACT:       yutong.huang@smartmore.com
 ******************************************************************************/
 endsnippet
 
