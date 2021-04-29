@@ -37,11 +37,21 @@ augroup hyt
   autocmd BufNewFile,BufRead,BufEnter *.json          call s:json_mode()
   autocmd BufNewFile,BufRead,BufEnter *.md            call s:markdown_mode()
 
+  autocmd BufWritePre *.cpp call s:cpp_format()
+  autocmd BufWritePre *.cu call s:cpp_format()
+  autocmd BufWritePre *.hpp call s:cpp_format()
+  autocmd BufWritePre *.h call s:cpp_format()
+  autocmd BufWritePre *.c call s:cpp_format()
+
   autocmd User RooterChDir           silent! call s:check_project_config()
   autocmd User AirlineAfterInit      silent! let g:airline_section_a = "%#__accent_bold#%{winnr()} - " . g:airline_section_a
   autocmd User EasyMotionPromptBegin silent! CocDisable
   autocmd User EasyMotionPromptEnd   silent! call s:after_easy_motion()
 augroup END
+
+function s:cpp_format() abort
+  execute '%!clang-format'
+endfunction
 
 function s:after_easy_motion() abort
   execute 'silent! CocEnable'
@@ -104,7 +114,7 @@ highlight default link WhichKeyGroup     Keyword
 highlight default link WhichKeyDesc      Identifier
 highlight default link WhichKeyFloating  Pmenu
 
-nnoremap Q :q<cr>
+nnoremap Q :qa<cr>
 nnoremap <silent><leader> :<c-u>WhichKey '<leader>'<cr>
 nnoremap <silent><space> :<c-u>WhichKey '<space>'<cr>
 

@@ -3,5 +3,6 @@
   "clangd.semanticHighlighting": true,
   "clangd.arguments": ["-log=verbose"],
   "snippets.userSnippetsDirectory": "~/dotfiles/vim/.vim/snippets",
-  "snippets.loadFromExtensions": false
+  "snippets.loadFromExtensions": false,
+  "python.pythonPath": "python3"
 }

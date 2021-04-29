@@ -29,6 +29,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'mhinz/vim-startify'
 
+Plug 'vimwiki/vimwiki'
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'szw/vim-maximizer', { 'on': ['MaximizerToggle'] }

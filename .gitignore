@@ -1,0 +1,13 @@
+*
+
+!git
+!git/**
+
+!vim
+!vim/**
+vim/.vim/plugged
+vim/.config/coc
+vim/.config/ranger
+vim/.config/nvim/autoload
+
+!.gitignore
