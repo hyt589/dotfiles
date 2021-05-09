@@ -9,6 +9,7 @@ SCRIPT_ROOT="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 if ! type -t nvm &> /dev/null
 then
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+    [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
 fi
 
 nvm install node

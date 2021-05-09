@@ -72,7 +72,7 @@ Plug 'Shougo/vimfiler.vim', {'on': 'VimFilerExplorer'}
 Plug 'liuchengxu/vista.vim'
 Plug 'preservim/tagbar'
 
-Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline', {'branch': 'v0.11'}
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'kassio/neoterm'

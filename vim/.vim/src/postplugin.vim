@@ -30,6 +30,7 @@ augroup hyt
   autocmd BufNewFile,BufRead,BufEnter *.cpp           call s:cpp_mode()
   autocmd BufNewFile,BufRead,BufEnter *.h             call s:cpp_mode()
   autocmd BufNewFile,BufRead,BufEnter *.hpp           call s:cpp_mode()
+  autocmd BufNewFile,BufRead,BufEnter *.cu            call s:cpp_mode()
   autocmd BufNewFile,BufRead,BufEnter *.vim           call s:viml_mode()
   autocmd BufNewFile,BufRead,BufEnter *.vimrc         call s:viml_mode()
   autocmd BufNewFile,BufRead,BufEnter *CMakeLists.txt call s:cmake_mode()
@@ -51,8 +52,11 @@ augroup END
 
 function s:cpp_format() abort
   let l:saved_pos = getpos('.')
-  execute '%!clang-format'
+  if b:use_clang_format
+    execute '%!clang-format'
+  endif
   call setpos('.', l:saved_pos)
+  execute 'LspCxxHighlight'
 endfunction
 
 function s:after_easy_motion() abort
@@ -65,6 +69,7 @@ function s:markdown_mode() abort
 endfunction
 
 function s:cpp_mode() abort
+  let b:use_clang_format = 1
   setlocal sw=4
 endfunction
 
@@ -177,6 +182,7 @@ nnoremap <silent><space>r :exec 'source ' . g:vim_home . '/vimrc'<cr>
 nmap <c-_> gcc
 vmap <c-_> gc
 nnoremap <silent><c-s> :wa<cr>
+inoremap <silent><c-s> <esc><c-s>a
 
 nnoremap <silent><space>db  :call debug#ToggleBreakPoint()<cr>
 nnoremap <silent><space>dcb :call debug#ToggleConditionalBreakPoint()<cr>
