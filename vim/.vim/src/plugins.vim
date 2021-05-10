@@ -27,6 +27,8 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'uarun/vim-protobuf'
+
 Plug 'mhinz/vim-startify'
 
 Plug 'vimwiki/vimwiki'
