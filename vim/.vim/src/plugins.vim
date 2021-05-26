@@ -29,6 +29,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'uarun/vim-protobuf'
 
+Plug 'NLKNguyen/papercolor-theme'
+
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'mhinz/vim-startify'

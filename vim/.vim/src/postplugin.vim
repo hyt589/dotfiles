@@ -15,6 +15,15 @@ let g:which_key_use_floating_win                 = 1
 let g:preview_markdown_vertical                  = 1
 let g:preview_markdown_auto_update               = 1
 
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default.dark': {
+  \       'transparent_background': 0
+  \     }
+  \   }
+  \ }
+
+
 set cmdheight=1
 
 if has('nvim')
