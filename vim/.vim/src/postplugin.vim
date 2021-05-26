@@ -6,7 +6,7 @@ let g:neoterm_size                               = 15
 let g:neoterm_autoinsert                         = 1
 let g:airline_inactive_collapse                  = 0
 let g:airline_focuslost_inactive                 = 1
-let g:airline_theme                              = 'onehalfdark'
+let g:airline_theme                              = 'dark'
 let g:chromatica#libclang_path                   = '/usr/lib/x86_64-linux-gnu/libclang-11.so.1'
 let g:airline_powerline_fonts                    = 1
 let g:vista_default_executive                    = 'coc'
@@ -21,7 +21,7 @@ if has('nvim')
   set termguicolors
 endif
 
-colorscheme onehalfdark
+colorscheme PaperColor
 highlight Comment gui=None
 
 augroup hyt
