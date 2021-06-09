@@ -1,5 +1,5 @@
-[credential]
-	helper = store
 [user]
 	email = yutong.huang@smartmore.com
 	name = Yutong Huang
+[credential]
+	helper = store
