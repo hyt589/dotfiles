@@ -9,5 +9,6 @@ vim/.vim/plugged
 vim/.config/coc
 vim/.config/ranger
 vim/.config/nvim/autoload
+vim/.config/htop
 
 !.gitignore
